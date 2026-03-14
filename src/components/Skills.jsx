@@ -4,7 +4,7 @@ import { StaggerContainer, StaggerItem } from './AnimatedSection'
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 sm:py-32">
+    <section id="skills" className="py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader label="What I Work With" title="Skills" />
 

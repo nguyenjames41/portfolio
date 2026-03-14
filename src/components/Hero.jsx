@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Radio } from 'lucide-react'
 
+function UNSWLogo() {
+  return (
+    <svg viewBox="0 0 100 28" className="inline-block h-[18px] w-auto align-middle opacity-80">
+      <rect width="100" height="28" rx="3" fill="#FFD600" />
+      <text x="6" y="21" fontFamily="Arial,sans-serif" fontWeight="900" fontSize="18" fill="#000">UNSW</text>
+    </svg>
+  )
+}
+
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
@@ -24,7 +33,7 @@ export default function Hero() {
             >
               <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
               <span className="text-[13px] font-medium text-emerald-400 tracking-wide">
-                Currently: Researching Robotics at UNSW
+                Currently: AI/ML Researching at RadAIology
               </span>
             </motion.div>
 
@@ -32,9 +41,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="font-mono text-sm text-slate-500 tracking-widest uppercase mb-4"
+              className="font-mono text-sm text-slate-500 tracking-widest uppercase mb-4 flex items-center flex-wrap gap-1"
             >
-              Mechanical Engineering / UNSW Sydney
+              Mechanical Engineering at <UNSWLogo /> Sydney
             </motion.p>
 
             <motion.h1
@@ -53,9 +62,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-8 font-mono"
+              className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-6 font-mono"
             >
-              <span><strong className="text-slate-300">Age</strong> 21</span>
+              <span><strong className="text-slate-300">Age</strong> 22</span>
               <span><strong className="text-slate-300">Major</strong> Mech. Engineering</span>
               <span><strong className="text-slate-300">School</strong> UNSW Sydney</span>
               <span><strong className="text-slate-300">Base</strong> Sydney, AU</span>
@@ -65,11 +74,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.65 }}
-              className="text-lg text-slate-400 font-light leading-relaxed max-w-xl mb-10"
+              className="text-lg text-slate-400 font-light leading-relaxed max-w-xl mb-8"
             >
               Engineer, startup founder, and AI researcher building things that
-              make a real difference. Currently interning at RadAIology and
-              building Cocuna.
+              kinda solve problems and I'm passionate about. Currently interning
+              at RadAIology and building Cocuna.
             </motion.p>
 
             <motion.div

@@ -15,7 +15,7 @@ function MicrosoftIcon() {
 
 export default function Awards() {
   return (
-    <section id="awards" className="py-24 sm:py-32 bg-slate-900/30">
+    <section id="awards" className="py-16 sm:py-20 bg-slate-900/30">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader label="Recognition" title="Awards & Certifications" />
 

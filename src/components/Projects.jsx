@@ -67,10 +67,11 @@ function ProjectCard({ project, onOpen }) {
           </span>
         </div>
 
-        {project.featured && project.image && (
-          <div className="hidden md:flex items-center justify-center">
+        {project.image && (
+          <div className={`${project.featured ? 'hidden md:flex items-center justify-center' : 'mt-4'}`}>
             <div className="rounded-xl overflow-hidden border border-slate-800/60 bg-slate-900">
-              <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
+              <img src={project.image} alt={project.title}
+                className={`w-full object-cover ${project.featured ? 'h-64' : 'h-32 opacity-60 group-hover:opacity-80 transition-opacity duration-500'}`} />
             </div>
           </div>
         )}
@@ -198,7 +199,7 @@ export default function Projects() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <section id="projects" className="py-24 sm:py-32 relative">
+    <section id="projects" className="py-16 sm:py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="What I've Built"

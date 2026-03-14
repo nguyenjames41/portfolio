@@ -6,7 +6,7 @@ import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Awards from './components/Awards'
 import Blog from './components/Blog'
-import FunFacts from './components/FunFacts'
+
 import Footer from './components/Footer'
 import CommandPalette from './components/CommandPalette'
 
@@ -22,7 +22,7 @@ export default function App() {
         <Skills />
         <Awards />
         <Blog />
-        <FunFacts />
+
       </main>
       <Footer />
       <CommandPalette />

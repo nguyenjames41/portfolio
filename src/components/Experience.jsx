@@ -4,7 +4,7 @@ import { StaggerContainer, StaggerItem } from './AnimatedSection'
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 sm:py-32 bg-slate-900/30">
+    <section id="experience" className="py-16 sm:py-20 bg-slate-900/30">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="Where I've Been"

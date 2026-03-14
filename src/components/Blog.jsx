@@ -5,7 +5,7 @@ import { StaggerContainer, StaggerItem } from './AnimatedSection'
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-24 sm:py-32">
+    <section id="blog" className="py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader
           label="My Journey"
