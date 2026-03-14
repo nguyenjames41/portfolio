@@ -1,5 +1,5 @@
 import { Mail, Linkedin } from 'lucide-react'
-import { FadeUp } from './AnimatedSection'
+import { motion } from 'framer-motion'
 
 function XIcon({ className }) {
   return (
@@ -29,17 +29,22 @@ function KaggleIcon({ className }) {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="py-16 border-t border-slate-800/60">
+    <footer id="contact" className="py-8 sm:py-12 border-t border-[var(--color-border)]">
       <div className="max-w-6xl mx-auto px-6">
-        <FadeUp>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '0px' }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        >
           <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start mb-10">
             <div>
-              <p className="text-xl font-extrabold text-white tracking-[-0.5px] mb-2">
+              <p className="font-serif text-xl font-bold text-[var(--color-cloud)] tracking-[-0.5px] mb-2 italic">
                 Le Quang Nguyen
               </p>
-              <p className="text-sm text-slate-500 font-light leading-relaxed">
+              <p className="text-sm text-[var(--color-muted)] font-mono leading-relaxed">
                 Current Research Intern at{' '}
-                <strong className="text-white font-semibold">RadAIology</strong>
+                <span className="text-[var(--color-cloud-dim)]">RadAIology</span>
                 <br />
                 Open to internship and graduate opportunities.
               </p>
@@ -48,7 +53,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="mailto:nguyen.james41@gmail.com"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 text-[12px] font-mono text-[var(--color-warm)] hover:text-[var(--color-mocha)] transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 Gmail
@@ -57,7 +62,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/le-quang-nguyen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 text-[12px] font-mono text-[var(--color-warm)] hover:text-[var(--color-mocha)] transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
@@ -66,7 +71,7 @@ export default function Footer() {
                 href="https://instagram.com/lequanng"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 text-[12px] font-mono text-[var(--color-warm)] hover:text-[var(--color-mocha)] transition-colors"
               >
                 <InstagramIcon className="w-4 h-4" />
                 Instagram
@@ -75,7 +80,7 @@ export default function Footer() {
                 href="https://kaggle.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 text-[12px] font-mono text-[var(--color-warm)] hover:text-[var(--color-mocha)] transition-colors"
               >
                 <KaggleIcon className="w-4 h-4" />
                 Kaggle
@@ -84,7 +89,7 @@ export default function Footer() {
                 href="https://x.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                className="inline-flex items-center gap-2 text-[12px] font-mono text-[var(--color-warm)] hover:text-[var(--color-mocha)] transition-colors"
               >
                 <XIcon className="w-4 h-4" />
                 X
@@ -92,12 +97,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-slate-800/60 pt-8 text-center">
-            <p className="text-xs text-slate-600 font-mono">
+          <div className="border-t border-[var(--color-border)] pt-8 text-center">
+            <p className="text-[11px] text-[var(--color-muted)] font-mono">
               Designed & engineered by Le Quang Nguyen / 2026
             </p>
           </div>
-        </FadeUp>
+        </motion.div>
       </div>
     </footer>
   )

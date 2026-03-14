@@ -37,7 +37,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-[1000] h-14 transition-all duration-300
           ${scrolled
-            ? 'bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60'
+            ? 'bg-[var(--color-base)]/85 backdrop-blur-[15px] border-b border-[var(--color-border)]'
             : 'bg-transparent border-b border-transparent'
           }`}
       >
@@ -45,9 +45,9 @@ export default function Navbar() {
           <a
             href="#hero"
             onClick={(e) => { e.preventDefault(); handleClick('hero') }}
-            className="font-mono text-sm font-semibold text-emerald-400 tracking-tight hover:text-emerald-300 transition-colors"
+            className="font-serif text-lg font-bold text-[var(--color-cloud)] tracking-tight hover:text-[var(--color-mocha)] transition-colors"
           >
-            LQN<span className="text-slate-600">.</span>
+            LQN<span className="text-[var(--color-mocha)]">.</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-1">
@@ -55,10 +55,10 @@ export default function Navbar() {
               <li key={n.id}>
                 <button
                   onClick={() => handleClick(n.id)}
-                  className={`px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 cursor-pointer
+                  className={`px-3 py-1.5 rounded-lg text-[11px] font-mono tracking-wide uppercase transition-all duration-200 cursor-pointer
                     ${active === n.id
-                      ? 'text-emerald-400 bg-emerald-500/10'
-                      : 'text-slate-500 hover:text-slate-300 hover:bg-slate-800/50'
+                      ? 'text-[var(--color-mocha)] bg-[var(--color-mocha)]/10'
+                      : 'text-[var(--color-muted)] hover:text-[var(--color-cloud-dim)] hover:bg-[var(--color-surface)]/50'
                     }`}
                 >
                   {n.label}
@@ -69,7 +69,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
+            className="md:hidden text-[var(--color-warm)] hover:text-[var(--color-cloud)] transition-colors cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -83,18 +83,18 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
             className="fixed top-14 left-0 right-0 bottom-0 z-[999]
-              bg-slate-950/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-6"
+              bg-[var(--color-base)]/95 backdrop-blur-[15px] flex flex-col items-center justify-center gap-6"
           >
             {navItems.map((n, i) => (
               <motion.button
                 key={n.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: i * 0.06 }}
                 onClick={() => handleClick(n.id)}
-                className="text-2xl font-semibold text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer"
+                className="font-serif text-2xl font-semibold text-[var(--color-cloud-dim)] hover:text-[var(--color-mocha)] transition-colors cursor-pointer"
               >
                 {n.label}
               </motion.button>

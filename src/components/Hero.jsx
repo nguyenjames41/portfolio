@@ -3,36 +3,46 @@ import { ArrowDown, Radio } from 'lucide-react'
 
 function UNSWLogo() {
   return (
-    <svg viewBox="0 0 100 28" className="inline-block h-[18px] w-auto align-middle opacity-80">
-      <rect width="100" height="28" rx="3" fill="#FFD600" />
-      <text x="6" y="21" fontFamily="Arial,sans-serif" fontWeight="900" fontSize="18" fill="#000">UNSW</text>
+    <svg viewBox="0 0 120 28" className="inline-block h-[16px] w-auto align-middle" aria-label="UNSW">
+      <text x="0" y="23" fontFamily="'Times New Roman',Georgia,serif" fontWeight="700" fontSize="26" fill="#FFD600" letterSpacing="2">UNSW</text>
     </svg>
   )
 }
 
 export default function Hero() {
+  const spring = { type: 'spring', stiffness: 100, damping: 20 }
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Gradient orb backgrounds */}
+    <section id="hero" className="relative pt-16 pb-8 sm:pt-20 sm:pb-16 overflow-hidden">
+      {/* Warm ambient glow */}
       <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full
-        bg-emerald-500/[0.04] blur-[120px] pointer-events-none" />
+        bg-[var(--color-mocha)]/[0.03] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full
-        bg-slate-500/[0.03] blur-[100px] pointer-events-none" />
+        bg-emerald-900/[0.04] blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-16 items-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ...spring, delay: 0.1 }}
+          className="text-[11px] text-[var(--color-muted)] font-mono mb-4 pt-2"
+        >
+          Hi there, welcome to my website where I just keep track of my projects and share my ups and downs.
+        </motion.p>
+
+        <div className="grid lg:grid-cols-[1fr_260px] gap-8 lg:gap-12 items-center">
           {/* Left: Text */}
           <div>
             {/* Live status */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-                border border-emerald-500/20 bg-emerald-500/[0.06] mb-8"
+              transition={{ ...spring, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full
+                border border-[var(--color-mocha)]/25 bg-[var(--color-mocha)]/8 mb-2"
             >
-              <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
-              <span className="text-[13px] font-medium text-emerald-400 tracking-wide">
+              <Radio className="w-3 h-3 text-[var(--color-mocha)] animate-pulse" />
+              <span className="text-[11px] sm:text-[13px] font-mono font-medium text-[var(--color-mocha-light)] tracking-wide">
                 Currently: AI/ML Researching at RadAIology
               </span>
             </motion.div>
@@ -40,8 +50,8 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="font-mono text-sm text-slate-500 tracking-widest uppercase mb-4 flex items-center flex-wrap gap-1"
+              transition={{ ...spring, delay: 0.3 }}
+              className="font-mono text-[11px] sm:text-xs text-[var(--color-muted)] tracking-[3px] uppercase mb-2 flex items-center flex-wrap gap-1"
             >
               Mechanical Engineering at <UNSWLogo /> Sydney
             </motion.p>
@@ -49,32 +59,32 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95]
-                tracking-[-3px] mb-8"
+              transition={{ ...spring, delay: 0.4 }}
+              className="font-serif text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--color-cloud)] leading-[0.92]
+                tracking-[-1px] sm:tracking-[-2px] mb-3"
             >
               Le Quang
               <br />
-              Nguyen<span className="text-emerald-400">.</span>
+              Nguyen<span className="text-[var(--color-mocha)]">.</span>
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500 mb-6 font-mono"
+              transition={{ ...spring, delay: 0.55 }}
+              className="flex flex-wrap gap-x-4 gap-y-0.5 text-[11px] text-[var(--color-muted)] mb-3 font-mono"
             >
-              <span><strong className="text-slate-300">Age</strong> 22</span>
-              <span><strong className="text-slate-300">Major</strong> Mech. Engineering</span>
-              <span><strong className="text-slate-300">School</strong> UNSW Sydney</span>
-              <span><strong className="text-slate-300">Base</strong> Sydney, AU</span>
+              <span><strong className="text-[var(--color-cloud-dim)]">Age</strong> 22</span>
+              <span><strong className="text-[var(--color-cloud-dim)]">Major</strong> Mech. Engineering</span>
+              <span><strong className="text-[var(--color-cloud-dim)]">School</strong> UNSW Sydney</span>
+              <span><strong className="text-[var(--color-cloud-dim)]">Base</strong> Sydney, AU</span>
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.65 }}
-              className="text-lg text-slate-400 font-light leading-relaxed max-w-xl mb-8"
+              transition={{ ...spring, delay: 0.65 }}
+              className="text-sm text-[var(--color-warm)] font-mono leading-relaxed max-w-xl mb-4"
             >
               Engineer, startup founder, and AI researcher building things that
               kinda solve problems and I'm passionate about. Currently interning
@@ -84,43 +94,43 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ ...spring, delay: 0.8 }}
               className="flex gap-4 flex-wrap"
             >
               <a
                 href="#projects"
                 onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl
-                  bg-emerald-500 text-slate-950 text-sm font-semibold
-                  hover:bg-emerald-400 transition-all duration-300 hover:shadow-lg
-                  hover:shadow-emerald-500/20"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                  bg-[var(--color-mocha)] text-[var(--color-base)] text-xs font-mono font-semibold
+                  hover:bg-[var(--color-mocha-light)] transition-all duration-300 hover:shadow-lg
+                  hover:shadow-[var(--color-mocha)]/20"
               >
                 See My Work
               </a>
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl
-                  border border-slate-700 text-slate-300 text-sm font-semibold
-                  hover:border-emerald-500/40 hover:text-emerald-400 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+                  border border-[var(--color-border-hover)] text-[var(--color-cloud-dim)] text-xs font-mono font-semibold
+                  hover:border-[var(--color-mocha)]/40 hover:text-[var(--color-mocha)] transition-all duration-300"
               >
                 Get in Touch
               </a>
             </motion.div>
           </div>
 
-          {/* Right: Photo */}
+          {/* Right: Photo — anti-grid overlap */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block"
+            transition={{ ...spring, delay: 0.6 }}
+            className="mx-auto w-28 sm:w-44 lg:w-auto order-first lg:order-last"
           >
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-emerald-500/20
-                via-transparent to-slate-500/10 blur-sm" />
-              <div className="relative rounded-2xl overflow-hidden border border-slate-800/80
-                bg-slate-900 aspect-[3/4]">
+            <div className="relative lg:-mr-4 lg:rotate-1">
+              <div className="absolute -inset-1 rounded-full lg:rounded-2xl bg-gradient-to-br from-[var(--color-mocha)]/20
+                via-transparent to-emerald-900/10 blur-sm" />
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[var(--color-border)]
+                bg-[var(--color-surface)] aspect-square lg:aspect-[3/4] rounded-full lg:rounded-2xl">
                 <img
                   src="/images/profile.webp"
                   alt="Le Quang Nguyen"
@@ -131,21 +141,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-slate-600 font-mono tracking-widest uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ArrowDown className="w-4 h-4 text-slate-600" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )

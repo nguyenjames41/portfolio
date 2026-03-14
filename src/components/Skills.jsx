@@ -4,26 +4,26 @@ import { StaggerContainer, StaggerItem } from './AnimatedSection'
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 sm:py-20">
+    <section id="skills" className="py-8 sm:py-12">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeader label="What I Work With" title="Skills" />
 
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 max-w-4xl mx-auto">
           {skills.map((group, i) => (
             <StaggerItem key={i}>
-              <div className="group rounded-2xl border border-slate-800/60 bg-slate-900/40
-                backdrop-blur-sm p-6 transition-all duration-300 h-full
-                hover:border-slate-700/80 hover:shadow-lg hover:shadow-emerald-500/[0.02]">
-                <h4 className="text-sm font-bold text-white mb-4 tracking-[-0.2px]">
+              <div className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/60
+                backdrop-blur-[15px] p-3 sm:p-4 transition-all duration-300 h-full
+                hover:border-[var(--color-border-hover)] hover:shadow-lg hover:shadow-[var(--color-mocha)]/[0.03]">
+                <h4 className="font-serif text-xs sm:text-sm font-bold text-[var(--color-cloud)] mb-2 italic">
                   {group.group}
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1">
                   {group.items.map(item => (
                     <span
                       key={item}
-                      className="px-3 py-1.5 rounded-lg text-xs font-mono font-medium
-                        bg-slate-800/60 border border-slate-700/30 text-slate-400
-                        transition-colors hover:border-emerald-500/20 hover:text-emerald-400"
+                      className="px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-medium
+                        bg-[var(--color-surface-raised)] border border-[var(--color-border)] text-[var(--color-warm)]
+                        transition-colors hover:border-[var(--color-mocha)]/25 hover:text-[var(--color-mocha-light)]"
                     >
                       {item}
                     </span>

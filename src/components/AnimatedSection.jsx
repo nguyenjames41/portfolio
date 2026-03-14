@@ -1,19 +1,20 @@
 import { motion } from 'framer-motion'
 
+const spring = { type: 'spring', stiffness: 100, damping: 20 }
+
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 }
 
 const item = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: spring,
   },
 }
 
@@ -42,10 +43,10 @@ export function StaggerItem({ children, className = '' }) {
 export function FadeUp({ children, className = '', delay = 0 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, filter: 'blur(4px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
+      transition={{ ...spring, delay }}
       className={className}
     >
       {children}

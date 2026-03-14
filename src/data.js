@@ -31,6 +31,7 @@ export const projects = [
     image: '/images/cocuna pitching.webp',
     pdfs: [
       { name: 'Cocuna Pitch Deck', url: '/images/Cocuna PDF Gen1500.pdf' },
+      { name: 'Lean Canvas', url: '/images/lean canvas for cocuna.png' },
     ],
   },
   {
@@ -58,7 +59,7 @@ export const projects = [
     description: 'A gas-spring powered sit-to-stand device for elderly users that reduces peak joint load by 40–50%.',
     challenge: 'Elderly individuals with mobility limitations face significant risk and discomfort when transitioning from seated to standing. Existing assistive devices are bulky, expensive, or require significant upper-body strength.',
     stack: ['Axiomatic Design', 'Ashby Selection', 'Mechanical Analysis', 'UN SDG 3'],
-    image: null,
+    image: '/images/easy-up-cover.jpg',
     pdfs: [
       { name: 'Final Report', url: '/images/Easy up final report.pdf' },
       { name: 'Presentation', url: '/images/DESN2000 Presentation.pptx' },
@@ -78,6 +79,7 @@ export const projects = [
     image: '/images/Pill dispenser.jpg',
     pdfs: [
       { name: 'Group Report', url: '/images/BIOM1010 Group Report.pdf' },
+      { name: 'Electronics Wiring', url: '/images/pill dispenser elec work.png' },
     ],
   },
   {

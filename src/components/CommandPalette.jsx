@@ -31,7 +31,7 @@ const actions = [
     label: 'Download Resume',
     section: 'Actions',
     icon: ArrowRight,
-    action: () => window.open('/images/EnerTrade PDF.pdf', '_blank'),
+    action: () => window.open('/images/resume.pdf', '_blank'),
   },
   {
     id: 'email',
@@ -106,16 +106,16 @@ export default function CommandPalette() {
       <button
         onClick={toggle}
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5
-          rounded-xl border border-slate-700/50 bg-slate-900/80 backdrop-blur-xl
-          text-slate-400 text-sm font-medium hover:border-emerald-500/30
-          hover:text-slate-200 transition-all duration-300 shadow-2xl
-          hover:shadow-emerald-500/5 group cursor-pointer"
+          rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-[15px]
+          text-[var(--color-warm)] text-[12px] font-mono font-medium hover:border-[var(--color-mocha)]/30
+          hover:text-[var(--color-cloud-dim)] transition-all duration-300 shadow-2xl
+          hover:shadow-[var(--color-mocha)]/5 group cursor-pointer"
         aria-label="Open command palette"
       >
-        <Command className="w-4 h-4 group-hover:text-emerald-400 transition-colors" />
+        <Command className="w-4 h-4 group-hover:text-[var(--color-mocha)] transition-colors" />
         <span className="hidden sm:inline">Command</span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded
-          bg-slate-800 border border-slate-700/50 text-[11px] text-slate-500 font-mono">
+          bg-[var(--color-surface-raised)] border border-[var(--color-border)] text-[11px] text-[var(--color-muted)] font-mono">
           Ctrl K
         </kbd>
       </button>
@@ -135,30 +135,30 @@ export default function CommandPalette() {
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
               className="fixed top-[20%] left-1/2 -translate-x-1/2 z-[9999] w-[90vw] max-w-[560px]
-                rounded-2xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-2xl
+                rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-[15px]
                 shadow-2xl overflow-hidden"
             >
-              <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-800">
-                <Search className="w-5 h-5 text-slate-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 px-5 py-4 border-b border-[var(--color-border)]">
+                <Search className="w-5 h-5 text-[var(--color-muted)] flex-shrink-0" />
                 <input
                   ref={inputRef}
                   value={query}
                   onChange={e => { setQuery(e.target.value); setSelected(0) }}
                   onKeyDown={handleKeyDown}
                   placeholder="Type a command or search..."
-                  className="flex-1 bg-transparent text-slate-200 text-base outline-none
-                    placeholder:text-slate-600 font-medium"
+                  className="flex-1 bg-transparent text-[var(--color-cloud-dim)] text-sm font-mono outline-none
+                    placeholder:text-[var(--color-muted)]"
                 />
-                <button onClick={() => setOpen(false)} className="text-slate-600 hover:text-slate-400 cursor-pointer">
+                <button onClick={() => setOpen(false)} className="text-[var(--color-muted)] hover:text-[var(--color-warm)] cursor-pointer">
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               <div className="max-h-[320px] overflow-y-auto p-2">
                 {filtered.length === 0 && (
-                  <p className="text-center text-slate-600 py-8 text-sm">No results found.</p>
+                  <p className="text-center text-[var(--color-muted)] py-8 text-sm font-mono">No results found.</p>
                 )}
                 {filtered.map((action, i) => {
                   const Icon = action.icon
@@ -170,21 +170,21 @@ export default function CommandPalette() {
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left
                         transition-all duration-150 cursor-pointer
                         ${i === selected
-                          ? 'bg-emerald-500/10 text-emerald-400'
-                          : 'text-slate-400 hover:text-slate-200'
+                          ? 'bg-[var(--color-mocha)]/10 text-[var(--color-mocha)]'
+                          : 'text-[var(--color-warm)] hover:text-[var(--color-cloud-dim)]'
                         }`}
                     >
                       <Icon className="w-4 h-4 flex-shrink-0" />
-                      <span className="flex-1 text-sm font-medium">{action.label}</span>
+                      <span className="flex-1 text-[13px] font-mono">{action.label}</span>
                       {i === selected && (
-                        <kbd className="text-[10px] text-emerald-500/60 font-mono">Enter</kbd>
+                        <kbd className="text-[10px] text-[var(--color-mocha)]/60 font-mono">Enter</kbd>
                       )}
                     </button>
                   )
                 })}
               </div>
 
-              <div className="flex items-center justify-between px-5 py-3 border-t border-slate-800 text-[11px] text-slate-600">
+              <div className="flex items-center justify-between px-5 py-3 border-t border-[var(--color-border)] text-[11px] text-[var(--color-muted)] font-mono">
                 <span>Navigate with arrow keys</span>
                 <span>Press <kbd className="font-mono">Esc</kbd> to close</span>
               </div>
